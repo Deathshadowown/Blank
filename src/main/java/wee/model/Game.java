@@ -19,7 +19,7 @@ public class Game{
     public static final String ANSI_WHITE = "\u001B[37m";
     private Hero userHero;
     private Map map = new Map();
-    private Rnd random = new Rnd();
+    // private Rnd random = new Rnd();
 
     public Hero getHero(){
         return userHero;
