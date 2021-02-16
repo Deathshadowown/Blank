@@ -1,0 +1,10 @@
+wee/model/hero/Assassin.class
+wee/model/Game.class
+wee/model/hero/CreateHero.class
+wee/model/hero/Knight.class
+wee/Blank.class
+wee/view/console_interface/Control_Interface.class
+wee/controller/Game_Controller.class
+wee/model/hero/Hero.class
+wee/model/hero/Wizard.class
+wee/model/Map.class
