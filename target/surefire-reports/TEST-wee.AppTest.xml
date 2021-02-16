@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="wee.AppTest" time="0.032" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="wee.AppTest" time="0.034" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -20,7 +20,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="localRepository" value="/root/.m2/repository"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-14-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/mnt/c/Users/Deathshadow/projects/Java_Projects/personal_projects/git/Blank/target/surefire/surefirebooter14487175031819840880.jar /mnt/c/Users/Deathshadow/projects/Java_Projects/personal_projects/git/Blank/target/surefire 2021-02-16T13-00-16_790-jvmRun1 surefire6210583870031682068tmp surefire_016807770673713029040tmp"/>
+    <property name="sun.java.command" value="/mnt/c/Users/Deathshadow/projects/Java_Projects/personal_projects/git/Blank/target/surefire/surefirebooter11357919189690463698.jar /mnt/c/Users/Deathshadow/projects/Java_Projects/personal_projects/git/Blank/target/surefire 2021-02-16T13-44-26_652-jvmRun1 surefire170956849407805251tmp surefire_04910819514726903497tmp"/>
     <property name="java.vendor.url.bug" value="Unknown"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="jdk.debug" value="release"/>
@@ -47,7 +47,7 @@
     <property name="java.vm.version" value="14.0.2+12-Ubuntu-120.04"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
-    <property name="surefire.real.class.path" value="/mnt/c/Users/Deathshadow/projects/Java_Projects/personal_projects/git/Blank/target/surefire/surefirebooter14487175031819840880.jar"/>
+    <property name="surefire.real.class.path" value="/mnt/c/Users/Deathshadow/projects/Java_Projects/personal_projects/git/Blank/target/surefire/surefirebooter11357919189690463698.jar"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="wee.AppTest" time="0.001"/>
+  <testcase name="shouldAnswerWithTrue" classname="wee.AppTest" time="0.002"/>
 </testsuite>

@@ -122,17 +122,37 @@ public class Map{
         }
     }
 
-    public void moveSouth(){
+    public int moveSouth(){
         // findPlayerOnMapMoveSouth();
         try {
             int[] playerLocation = new int[2];
             playerLocation = findPlayerOnMap();
-            //Moves South
+            int count;
+            //Moves North
             if (map[playerLocation[0] + 1][playerLocation[1]] == 'O'){
                 map[playerLocation[0] + 1][playerLocation[1]] = 'P';
                 map[playerLocation[0]][playerLocation[1]] = 'O';
+                count = 1;
+                return count;
+            }else if (map[playerLocation[0] + 1][playerLocation[1]] == 'E'){
+                count = 2;
+                return count;
             }
-            //ArrayIndexOutOfBoundsException
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Game won");
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+        return 0;
+    }
+
+    public void afterMoveSouth(){
+        try {
+            int[] playerLocation = new int[2];
+            playerLocation = findPlayerOnMap();
+    
+            map[playerLocation[0] + 1][playerLocation[1]] = 'P';
+            map[playerLocation[0]][playerLocation[1]] = 'O';       
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Game won");
         } catch (Exception e) {
@@ -140,16 +160,36 @@ public class Map{
         }
     }
 
-    public void moveEast(){
+    public int moveEast(){
         try {
             int[] playerLocation = new int[2];
             playerLocation = findPlayerOnMap();
-    
+            int count;
             //Moves East
             if (map[playerLocation[0]][playerLocation[1] + 1] == 'O'){
                 map[playerLocation[0]][playerLocation[1] + 1] = 'P';
                 map[playerLocation[0]][playerLocation[1]] = 'O';
+                count = 1;
+                return count;
+            }else if (map[playerLocation[0]][playerLocation[1] + 1] == 'E'){
+                count = 2;
+                return count;
             }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Game won");
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+        return 0;
+    }
+
+    public void afterMoveEast(){
+        try {
+            int[] playerLocation = new int[2];
+            playerLocation = findPlayerOnMap();
+    
+            map[playerLocation[0]][playerLocation[1] + 1] = 'P';
+            map[playerLocation[0]][playerLocation[1]] = 'O';     
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Game won");
         } catch (Exception e) {
@@ -157,16 +197,36 @@ public class Map{
         }
     }
 
-    public void moveWest(){
+    public int moveWest(){
         try {
             int[] playerLocation = new int[2];
             playerLocation = findPlayerOnMap();
-    
+            int count;
             //Moves West
             if (map[playerLocation[0]][playerLocation[1] - 1] == 'O'){
                 map[playerLocation[0]][playerLocation[1] - 1] = 'P';
                 map[playerLocation[0]][playerLocation[1]] = 'O';
+                count = 1;
+                return count;
+            }else if (map[playerLocation[0]][playerLocation[1] - 1] == 'E'){
+                count = 2;
+                return count;
             }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Game won");
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+        return 0;
+    }
+
+    public void afterMoveWest(){
+        try {
+            int[] playerLocation = new int[2];
+            playerLocation = findPlayerOnMap();
+    
+            map[playerLocation[0]][playerLocation[1] - 1] = 'P';
+            map[playerLocation[0]][playerLocation[1]] = 'O';
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Game won");
         } catch (Exception e) {

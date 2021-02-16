@@ -114,4 +114,7 @@ public class Control_Interface{
         System.out.println("\u001B[37m");
         return count;
     }
+    public void fleeSuccessful(){
+        System.out.println("\u001B[34m"+"Flee Successful\u001B[37m");
+    }
 }

@@ -2,9 +2,11 @@ package wee.controller;
 
 import wee.model.Game;
 import wee.view.console_interface.Control_Interface;
+import wee.model.Rnd;
 public class Game_Controller{
     public byte userChoiceInterface;
     public Game game = new Game();
+    private Rnd random = new Rnd();
     public Control_Interface consoleInterface = new Control_Interface();
     public Game_Controller(byte userChoice){
         userChoiceInterface = userChoice;
@@ -27,6 +29,7 @@ public class Game_Controller{
         try {
             String userCommand = null;
             int count = 0;
+            int randomnumber;
             System.out.print("Command: ");
             userCommand = consoleInterface.userCommand(game.getHero());
             if (userCommand.equals("help")){
@@ -39,14 +42,62 @@ public class Game_Controller{
                 count = game.playerMoveNorth();
                 if (count == 2){
                     count = consoleInterface.fightOrFlee();
-                    game.fightOrFleeNorth(count);
+                    //if Count is 1 you fight if 2 you try to flee
+                    if (count == 1){
+                        game.fightNorth(count);
+                    }else if(count == 2){
+                        randomnumber = random.randomNumber();
+                        if (randomnumber >= 5){
+                            game.fightNorth(count);
+                        }else if(randomnumber <= 4)
+                            consoleInterface.fleeSuccessful();
+                    }
                 }
             }else if (userCommand.toLowerCase().equals("south")){
-                game.playerMoveSouth();
+                count = game.playerMoveSouth();
+                if (count == 2){
+                    count = consoleInterface.fightOrFlee();
+                    //if Count is 1 you fight if 2 you try to flee
+                    if (count == 1){
+                        game.fightSouth(count);
+                    }else if(count == 2){
+                        randomnumber = random.randomNumber();
+                        if (randomnumber >= 5){
+                            game.fightSouth(count);
+                        }else if(randomnumber <= 4)
+                            consoleInterface.fleeSuccessful();
+                    }
+                }
             }else if (userCommand.toLowerCase().equals("east")){
-                game.playerMoveEast();
+                count = game.playerMoveEast();
+                if (count == 2){
+                    count = consoleInterface.fightOrFlee();
+                    //if Count is 1 you fight if 2 you try to flee
+                    if (count == 1){
+                        game.fightEast(count);
+                    }else if(count == 2){
+                        randomnumber = random.randomNumber();
+                        if (randomnumber >= 5){
+                            game.fightEast(count);
+                        }else if(randomnumber <= 4)
+                            consoleInterface.fleeSuccessful();
+                    }
+                }
             }else if (userCommand.toLowerCase().equals("west")){
-                game.playerMoveWest();
+                count = game.playerMoveWest();
+                if (count == 2){
+                    count = consoleInterface.fightOrFlee();
+                    //if Count is 1 you fight if 2 you try to flee
+                    if (count == 1){
+                        game.fightWest(count);
+                    }else if(count == 2){
+                        randomnumber = random.randomNumber();
+                        if (randomnumber >= 5){
+                            game.fightWest(count);
+                        }else if(randomnumber <= 4)
+                            consoleInterface.fleeSuccessful();
+                    }
+                }
             }else if (userCommand.toLowerCase().equals("save")){
                 
             }else if (userCommand.toLowerCase().equals("quit")){

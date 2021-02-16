@@ -76,28 +76,43 @@ public class Game{
         return count;
     }
 
-    public void fightOrFleeNorth(int count){
-        int randomNumber = 0;
-        //1 is fight 2 is flee
-        if (count == 1){
-            map.afterMoveNorth();
-        }else if (count == 2){
-            randomNumber = random.randomNumber();
-            if (randomNumber >= 5){
-                map.afterMoveNorth();
-            }
+    public void fightNorth(int count){
+        map.afterMoveNorth();
+    }
+
+    public int playerMoveSouth(){
+        int count = map.moveSouth();
+        if (count == 2){
+            return count;
         }
+        return count;
     }
 
-    public void playerMoveSouth(){
-        map.moveSouth();;
+    public void fightSouth(int count){
+        map.afterMoveSouth();
     }
 
-    public void playerMoveEast(){
-        map.moveEast();
+    public int playerMoveEast(){
+        int count = map.moveEast();
+        if (count == 2){
+            return count;
+        }
+        return count;
     }
 
-    public void playerMoveWest(){
-        map.moveWest();
+    public void fightEast(int count){
+        map.afterMoveEast();
+    }
+
+    public int playerMoveWest(){
+        int count = map.moveWest();
+        if (count == 2){
+            return count;
+        }
+        return count;
+    }
+
+    public void fightWest(int count){
+        map.afterMoveWest();
     }
 }
