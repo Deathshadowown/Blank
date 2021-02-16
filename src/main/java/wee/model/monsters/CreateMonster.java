@@ -5,13 +5,13 @@ public class CreateMonster{
     public static Monster newMonster(String monsterName){
         switch (monsterName) {
             case "Dragon":
-                return (new Dragon(monsterName));
+                return (new Dragon());
             case "Orge":
-                return (new Dragon(Orge));
+                return (new Orge());
             case "Bat":
-                return (new Bat(Orge));
+                return (new Bat());
             case "Skeleton":
-                return (new Skeleton(Orge));
+                return (new Skeleton());
             default:
                 break;
         }

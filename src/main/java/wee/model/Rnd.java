@@ -8,4 +8,9 @@ public class Rnd{
         rnNumber = random.nextInt(10);
         return rnNumber;
     }
+    public int randomNumberOfFour(){
+        int rnNumber = 0;
+        rnNumber = random.nextInt(3);
+        return rnNumber;
+    }
 }

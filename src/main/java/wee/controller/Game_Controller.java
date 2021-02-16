@@ -29,6 +29,7 @@ public class Game_Controller{
         try {
             String userCommand = null;
             int count = 0;
+            int newCount = 0;
             int randomnumber;
             System.out.print("Command: ");
             userCommand = consoleInterface.userCommand(game.getHero());
@@ -40,64 +41,28 @@ public class Game_Controller{
                 game.printMap();
             }else if (userCommand.toLowerCase().equals("north")){
                 count = game.playerMoveNorth();
-                if (count == 2){
-                    count = consoleInterface.fightOrFlee();
-                    //if Count is 1 you fight if 2 you try to flee
-                    if (count == 1){
-                        game.fightNorth(count);
-                    }else if(count == 2){
-                        randomnumber = random.randomNumber();
-                        if (randomnumber >= 5){
-                            game.fightNorth(count);
-                        }else if(randomnumber <= 4)
-                            consoleInterface.fleeSuccessful();
-                    }
-                }
+                if (count == 2)
+                newCount = fightOrFlee(count);
+                if (newCount == 1)
+                game.fightNorth();
             }else if (userCommand.toLowerCase().equals("south")){
                 count = game.playerMoveSouth();
-                if (count == 2){
-                    count = consoleInterface.fightOrFlee();
-                    //if Count is 1 you fight if 2 you try to flee
-                    if (count == 1){
-                        game.fightSouth(count);
-                    }else if(count == 2){
-                        randomnumber = random.randomNumber();
-                        if (randomnumber >= 5){
-                            game.fightSouth(count);
-                        }else if(randomnumber <= 4)
-                            consoleInterface.fleeSuccessful();
-                    }
-                }
+                if (count == 2)
+                newCount = fightOrFlee(count);
+                if (newCount == 1)
+                game.fightSouth();
             }else if (userCommand.toLowerCase().equals("east")){
                 count = game.playerMoveEast();
-                if (count == 2){
-                    count = consoleInterface.fightOrFlee();
-                    //if Count is 1 you fight if 2 you try to flee
-                    if (count == 1){
-                        game.fightEast(count);
-                    }else if(count == 2){
-                        randomnumber = random.randomNumber();
-                        if (randomnumber >= 5){
-                            game.fightEast(count);
-                        }else if(randomnumber <= 4)
-                            consoleInterface.fleeSuccessful();
-                    }
-                }
+                if (count == 2)
+                newCount = fightOrFlee(count);
+                if (newCount == 1)
+                game.fightEast();
             }else if (userCommand.toLowerCase().equals("west")){
                 count = game.playerMoveWest();
-                if (count == 2){
-                    count = consoleInterface.fightOrFlee();
-                    //if Count is 1 you fight if 2 you try to flee
-                    if (count == 1){
-                        game.fightWest(count);
-                    }else if(count == 2){
-                        randomnumber = random.randomNumber();
-                        if (randomnumber >= 5){
-                            game.fightWest(count);
-                        }else if(randomnumber <= 4)
-                            consoleInterface.fleeSuccessful();
-                    }
-                }
+                if (count == 2)
+                newCount = fightOrFlee(count);
+                if (newCount == 1)
+                game.fightWest();
             }else if (userCommand.toLowerCase().equals("save")){
                 
             }else if (userCommand.toLowerCase().equals("quit")){
@@ -110,5 +75,19 @@ public class Game_Controller{
             //TODO: handle exception
         }
 
+    }
+
+    public int fightOrFlee(int count){
+        int randomnumber;
+            count = consoleInterface.fightOrFlee();
+            //if Count is 1 you fight if 2 you try to flee
+                if (count == 2){
+                    randomnumber = random.randomNumber();
+                    if (randomnumber <= 4)
+                    consoleInterface.fleeSuccessful();
+                    else
+                    count = 1;
+            }
+            return count;
     }
 }

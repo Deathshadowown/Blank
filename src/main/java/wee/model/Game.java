@@ -3,6 +3,8 @@ package wee.model;
 import wee.model.hero.Hero;
 import wee.controller.Game_Controller;
 import wee.model.hero.CreateHero;
+import wee.model.monsters.Monster;
+import wee.model.monsters.CreateMonster;
 import wee.model.Map;
 import wee.model.Rnd;
 import java.util.concurrent.TimeUnit;
@@ -18,17 +20,31 @@ public class Game{
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
     private Hero userHero;
+    private Monster selectedMonster;
     private Map map = new Map();
-    // private Rnd random = new Rnd();
+    private static final String[] listOfMonsters = {"Dragon", "Orge", "Skeleton", "Bat"};
+    private Rnd random = new Rnd();
 
     public Hero getHero(){
         return userHero;
+    }
+
+    public Monster getMonster(){
+        return selectedMonster;
     }
     public Game(){
     }
 
     public void createHero(String heroName, String heroClass){
         userHero = CreateHero.newHero(heroName, heroClass);
+    }
+
+    public void selectMonsterToFight(){
+        int randomMonster = random.randomNumberOfFour();
+        System.out.println(randomMonster);
+        System.out.println(listOfMonsters[randomMonster]+" --Weeeeeeeeeeeee");
+        selectedMonster = CreateMonster.newMonster(listOfMonsters[randomMonster]);
+        // return selectedMonster;
     }
 
     public void createMap(){
@@ -76,7 +92,8 @@ public class Game{
         return count;
     }
 
-    public void fightNorth(int count){
+    public void fightNorth(){
+        selectMonsterToFight();
         map.afterMoveNorth();
     }
 
@@ -88,7 +105,7 @@ public class Game{
         return count;
     }
 
-    public void fightSouth(int count){
+    public void fightSouth(){
         map.afterMoveSouth();
     }
 
@@ -100,7 +117,7 @@ public class Game{
         return count;
     }
 
-    public void fightEast(int count){
+    public void fightEast(){
         map.afterMoveEast();
     }
 
@@ -112,7 +129,7 @@ public class Game{
         return count;
     }
 
-    public void fightWest(int count){
+    public void fightWest(){
         map.afterMoveWest();
     }
 }
