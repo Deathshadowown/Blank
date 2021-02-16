@@ -1,11 +1,24 @@
 package wee.view.console_interface;
 
 import wee.model.hero.Hero;
+import wee.model.monsters.Monster;
 import wee.model.Game;
+import wee.model.Rnd;
 import java.util.Scanner;
 public class Control_Interface{
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
     private Game game;
     private Hero myHero;
+    private Monster selectedMonster;
+    private Rnd random = new Rnd();
     public Scanner scan = new Scanner(System.in);
     public Control_Interface(){
 
@@ -89,7 +102,7 @@ public class Control_Interface{
         System.out.println("\u001B[32m"+"Hero's Name: "+myHero.getHeroName());
         System.out.println("Hero's Class: "+myHero.getHeroClass());
         System.out.println("Hero's Level: "+myHero.getHeroLevel());
-        System.out.println("Hero's Health"+myHero.getHealth());
+        System.out.println("Hero's Health: "+myHero.getHealth());
         System.out.println("Hero's Attack: "+myHero.getAttack());
         System.out.println("Hero's Defence:"+myHero.getDefence());
         System.out.println("Hero's BlockChance: "+myHero.getBlockChance());
@@ -116,5 +129,32 @@ public class Control_Interface{
     }
     public void fleeSuccessful(){
         System.out.println("\u001B[34m"+"Flee Successful\u001B[37m");
+    }
+    public void fleeFailed(){
+        System.out.println("\u001B[31m"+"Flee Failed\u001B[37m");
+    }
+
+    public int messageSelectedMonsterToFight(Monster monster){
+        int randomNumber;
+        selectedMonster = monster;
+        System.out.println("\u001B[31m"+"Monster appears "+selectedMonster.getMonsterName()+" Hero gets ready to fight"+"\u001B[37m");
+        System.out.print("Press enter to roll dice: ");
+        scan.nextLine();
+        randomNumber = random.randomNumberOneHundred();
+        if (randomNumber > 50){
+            System.out.println("\u001B[31m"+"Monster gets first attack\u001B[37m");
+        }else if(randomNumber <= 50){
+            System.out.println("\u001B[34m"+"Hero gets first attack\u001B[37m");
+        }
+        return randomNumber;
+    }
+
+    public void fightReport(int count){
+        if (count == 1){
+            System.out.println(ANSI_RED+"hero has died, Game Over"+ANSI_WHITE);
+            System.exit(0);
+        }else if (count == 2)
+        System.out.println(ANSI_BLUE+"Monster has died"+ANSI_WHITE);
+        
     }
 }

@@ -13,4 +13,10 @@ public class Rnd{
         rnNumber = random.nextInt(3);
         return rnNumber;
     }
+
+    public int randomNumberOneHundred(){
+        int rnNumber = 0;
+        rnNumber = random.nextInt(100);
+        return rnNumber;
+    }
 }

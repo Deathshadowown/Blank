@@ -5,6 +5,8 @@ import wee.controller.Game_Controller;
 import wee.model.hero.CreateHero;
 import wee.model.monsters.Monster;
 import wee.model.monsters.CreateMonster;
+import wee.model.items.Items;
+import wee.model.items.SelectItem;
 import wee.model.Map;
 import wee.model.Rnd;
 import java.util.concurrent.TimeUnit;
@@ -22,7 +24,12 @@ public class Game{
     private Hero userHero;
     private Monster selectedMonster;
     private Map map = new Map();
+    private Items item;
     private static final String[] listOfMonsters = {"Dragon", "Orge", "Skeleton", "Bat"};
+    private static final String[] listBatMonsterItems = {"batsword", "batarmor", "bathelm", "healingpotion", "greaterhealingpotion"};
+    private static final String[] listSkeletonMonsterItems = {"bonesword", "bonearmor", "bonehelm", "healingpotion", "greaterhealingpotion"};
+    private static final String[] listOrgeMonsterItems = {"bonesword", "bonearmor", "bonehelm", "healingpotion", "greaterhealingpotion", "superiorhealingpotion"};
+    private static final String[] listDragonMonsterItems = {"bonesword", "bonearmor", "bonehelm", "healingpotion", "greaterhealingpotion", "superiorhealingpotion", "supremehealingpotion"};
     private Rnd random = new Rnd();
 
     public Hero getHero(){
@@ -45,6 +52,10 @@ public class Game{
         System.out.println(listOfMonsters[randomMonster]+" --Weeeeeeeeeeeee");
         selectedMonster = CreateMonster.newMonster(listOfMonsters[randomMonster]);
         // return selectedMonster;
+    }
+
+    public void getItem(String itemType, String itemName){
+        item = SelectItem.newItem(itemType, itemName)
     }
 
     public void createMap(){
@@ -93,7 +104,7 @@ public class Game{
     }
 
     public void fightNorth(){
-        selectMonsterToFight();
+        // selectMonsterToFight();
         map.afterMoveNorth();
     }
 
@@ -131,5 +142,51 @@ public class Game{
 
     public void fightWest(){
         map.afterMoveWest();
+    }
+
+    public int fightSystem(int randomnumber){
+        int newHeroHealth;
+        int newMonsterHealth;
+        int count = 0;
+        while(true){
+            if(randomnumber > 50){
+                newHeroHealth = userHero.getHealth() - selectedMonster.getAttack();
+                userHero.setHealth(newHeroHealth);
+                if (userHero.getHealth() <= 0){
+                    count = 1;
+                    break;
+                }
+                newMonsterHealth = selectedMonster.getHealth() - userHero.getAttack();
+                selectedMonster.setHealth(newMonsterHealth);
+                if (selectedMonster.getHealth() <= 0){
+                    count = 2;
+                    break;
+                }
+            }else if (randomnumber <= 50){
+                newMonsterHealth = selectedMonster.getHealth() - userHero.getAttack();
+                selectedMonster.setHealth(newMonsterHealth);
+                if (selectedMonster.getHealth() <= 0){
+                    count = 2;
+                    break;
+                }
+                newHeroHealth = userHero.getHealth() - selectedMonster.getAttack();
+                userHero.setHealth(newHeroHealth);
+                if (userHero.getHealth() <= 0){
+                    count = 1;
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+
+    public void itemDrop(){
+        int randomNumber;
+        randomNumber = random.randomNumberOneHundred();
+        if (randomNumber > 50){
+
+        }else if (randomNumber <= 50){
+
+        }
     }
 }

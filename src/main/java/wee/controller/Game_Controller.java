@@ -43,26 +43,41 @@ public class Game_Controller{
                 count = game.playerMoveNorth();
                 if (count == 2)
                 newCount = fightOrFlee(count);
-                if (newCount == 1)
-                game.fightNorth();
+                if (newCount == 1){
+                    game.selectMonsterToFight();
+                    randomnumber = consoleInterface.messageSelectedMonsterToFight(game.getMonster());
+                    count = game.fightSystem(randomnumber);
+                    consoleInterface.fightReport(count);
+                    game.itemDrop();
+                    game.fightNorth();
+                }
             }else if (userCommand.toLowerCase().equals("south")){
                 count = game.playerMoveSouth();
                 if (count == 2)
                 newCount = fightOrFlee(count);
-                if (newCount == 1)
-                game.fightSouth();
+                if (newCount == 1){
+                    game.selectMonsterToFight();
+                    consoleInterface.messageSelectedMonsterToFight(game.getMonster());
+                    game.fightSouth();
+                }
             }else if (userCommand.toLowerCase().equals("east")){
                 count = game.playerMoveEast();
                 if (count == 2)
                 newCount = fightOrFlee(count);
-                if (newCount == 1)
-                game.fightEast();
+                if (newCount == 1){
+                    game.selectMonsterToFight();
+                    consoleInterface.messageSelectedMonsterToFight(game.getMonster());
+                    game.fightEast();
+                }
             }else if (userCommand.toLowerCase().equals("west")){
                 count = game.playerMoveWest();
                 if (count == 2)
                 newCount = fightOrFlee(count);
-                if (newCount == 1)
-                game.fightWest();
+                if (newCount == 1){
+                    game.selectMonsterToFight();
+                    consoleInterface.messageSelectedMonsterToFight(game.getMonster());
+                    game.fightWest();
+                }
             }else if (userCommand.toLowerCase().equals("save")){
                 
             }else if (userCommand.toLowerCase().equals("quit")){
@@ -85,8 +100,10 @@ public class Game_Controller{
                     randomnumber = random.randomNumber();
                     if (randomnumber <= 4)
                     consoleInterface.fleeSuccessful();
-                    else
-                    count = 1;
+                    else{
+                        consoleInterface.fleeFailed();
+                        count = 1;
+                    }
             }
             return count;
     }
