@@ -95,4 +95,23 @@ public class Control_Interface{
         System.out.println("Hero's BlockChance: "+myHero.getBlockChance());
         System.out.println("Current Hero's Experience: "+myHero.getExperience()+"\u001B[37m");
     }
+
+    public int fightOrFlee(){
+        int count = 0;
+        String command = null;
+        System.out.println("\u001B[31m"+"Hero encountered an enemy!");
+        while(true){
+            System.out.print("Do you wish to 1)Fight or 2)Flee? Use number: ");
+            command = scan.nextLine();
+            if (command.equals("1")){
+                count = 1;
+                break;
+            }else if (command.equals("2")){
+                count = 2;
+                break;
+            }
+        }
+        System.out.println("\u001B[37m");
+        return count;
+    }
 }

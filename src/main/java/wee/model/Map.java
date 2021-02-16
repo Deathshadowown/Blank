@@ -108,8 +108,18 @@ public class Map{
         }
         return 0;
     }
-    public void fightNorth(int fightOrRun){
-
+    public void afterMoveNorth(){
+        try {
+            int[] playerLocation = new int[2];
+            playerLocation = findPlayerOnMap();
+    
+            map[playerLocation[0] - 1][playerLocation[1]] = 'P';
+            map[playerLocation[0]][playerLocation[1]] = 'O';         
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Game won");
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
     }
 
     public void moveSouth(){

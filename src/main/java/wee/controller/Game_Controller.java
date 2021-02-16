@@ -38,7 +38,8 @@ public class Game_Controller{
             }else if (userCommand.toLowerCase().equals("north")){
                 count = game.playerMoveNorth();
                 if (count == 2){
-                    
+                    count = consoleInterface.fightOrFlee();
+                    game.fightOrFleeNorth(count);
                 }
             }else if (userCommand.toLowerCase().equals("south")){
                 game.playerMoveSouth();

@@ -1,6 +1,7 @@
 wee/model/hero/Assassin.class
 wee/model/Game.class
 wee/model/hero/CreateHero.class
+wee/model/Rnd.class
 wee/model/hero/Knight.class
 wee/Blank.class
 wee/view/console_interface/Control_Interface.class

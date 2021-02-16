@@ -4,6 +4,7 @@ import wee.model.hero.Hero;
 import wee.controller.Game_Controller;
 import wee.model.hero.CreateHero;
 import wee.model.Map;
+import wee.model.Rnd;
 import java.util.concurrent.TimeUnit;
 // import java.util.Scanner;
 public class Game{
@@ -18,6 +19,7 @@ public class Game{
     public static final String ANSI_WHITE = "\u001B[37m";
     private Hero userHero;
     private Map map = new Map();
+    private Rnd random = new Rnd();
 
     public Hero getHero(){
         return userHero;
@@ -72,6 +74,19 @@ public class Game{
             return count;
         }
         return count;
+    }
+
+    public void fightOrFleeNorth(int count){
+        int randomNumber = 0;
+        //1 is fight 2 is flee
+        if (count == 1){
+            map.afterMoveNorth();
+        }else if (count == 2){
+            randomNumber = random.randomNumber();
+            if (randomNumber >= 5){
+                map.afterMoveNorth();
+            }
+        }
     }
 
     public void playerMoveSouth(){
