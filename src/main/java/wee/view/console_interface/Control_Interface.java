@@ -2,6 +2,7 @@ package wee.view.console_interface;
 
 import wee.model.hero.Hero;
 import wee.model.monsters.Monster;
+import wee.model.items.Items;
 import wee.model.Game;
 import wee.model.Rnd;
 import java.util.Scanner;
@@ -17,6 +18,7 @@ public class Control_Interface{
     public static final String ANSI_WHITE = "\u001B[37m";
     private Game game;
     private Hero myHero;
+    private Items item;
     private Monster selectedMonster;
     private Rnd random = new Rnd();
     public Scanner scan = new Scanner(System.in);
@@ -100,6 +102,9 @@ public class Control_Interface{
 
     public void playerInfo(){
         System.out.println("\u001B[32m"+"Hero's Name: "+myHero.getHeroName());
+        System.out.println("Hero's Current Weapon: "+myHero.getCurrentWeapon());
+        System.out.println("Hero's Current Armor: "+myHero.getCurrentArmor());
+        System.out.println("Hero's Current Helm: "+myHero.getCurrentHelm());
         System.out.println("Hero's Class: "+myHero.getHeroClass());
         System.out.println("Hero's Level: "+myHero.getHeroLevel());
         System.out.println("Hero's Health: "+myHero.getHealth());
@@ -156,5 +161,27 @@ public class Control_Interface{
         }else if (count == 2)
         System.out.println(ANSI_BLUE+"Monster has died"+ANSI_WHITE);
         
+    }
+
+    public String itemDropMessage(int randomNumber, Items gotItem){
+        System.out.println("here i am");
+        String userReply = "boo";
+        item = gotItem;
+        if (randomNumber > 50){
+            System.out.println(ANSI_BLUE+"You received "+item.getItemName());
+            while(true){
+                System.out.print("Do you want to equip item? yes no: "+ANSI_WHITE);
+                userReply = scan.nextLine();
+                if (userReply.toLowerCase().equals("yes")){
+                    return userReply;
+                }else if (userReply.toLowerCase().equals("no")){
+                    return userReply;
+                }
+            }
+
+        }else if (randomNumber <= 50){
+            System.out.println(ANSI_RED+"no item received"+ANSI_WHITE);
+        }
+        return userReply;
     }
 }

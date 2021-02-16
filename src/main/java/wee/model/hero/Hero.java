@@ -1,8 +1,15 @@
 package wee.model.hero;
 
+import wee.model.items.Weapons;
+import wee.model.items.Armor;
+import wee.model.items.Helm;
+import wee.model.items.Items;
 public class Hero{
     private String heroName;
     private String heroClass;
+    protected Weapons weapon;
+    protected Armor armor;
+    protected Helm helm;
     protected int attack;
     protected int defence;
     protected int health;
@@ -36,6 +43,57 @@ public class Hero{
     }
     public void setHeroClass(String heroClass){
         this.heroClass = heroClass;
+    }
+
+    //set CurrentWeapon
+    public String getCurrentWeapon(){
+        return this.weapon.getItemName();
+    }
+    
+    public void setCurrentWeapon(Weapons weapon){
+        this.weapon = weapon;
+    }
+
+    public void setChangeCurrentWeapon(Items item){
+        int totalAttack;
+        totalAttack = this.attack - this.weapon.getAttack();
+        this.weapon = new Weapons(item.getItemName());
+        totalAttack = this.attack + this.weapon.getAttack();
+        this.attack = totalAttack;
+    }
+    
+    //set CurrentArmor
+    public String getCurrentArmor(){
+        return this.armor.getItemName();
+    }
+
+    public void setCurrentArmor(Armor armor){
+        this.armor = armor;
+    }
+
+    public void setChangeCurrentArmor(Items item){
+        int totalArmor;
+        totalArmor = this.defence - this.armor.getDefence();
+        this.armor = new Armor(item.getItemName());
+        totalArmor = this.defence + this.armor.getDefence();
+        this.defence = totalArmor;
+    }
+
+    //set CurrentHelm
+    public String getCurrentHelm(){
+        return this.helm.getItemName();
+    }
+    
+    public void setCurrentHelm(Helm helm){
+        this.helm = helm;
+    }
+
+    public void setChangeCurrentHelm(Items item){
+        int totalHelm;
+        totalHelm = this.health - this.helm.getHealth();
+        this.helm = new Helm(item.getItemName());
+        totalHelm = this.health + this.helm.getHealth();
+        this.health = totalHelm;
     }
 
     //set Attack

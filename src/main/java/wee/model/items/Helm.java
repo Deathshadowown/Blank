@@ -3,14 +3,16 @@ package wee.model.items;
 public class Helm extends Items{
     public Helm(String itemName){
         super("Helm", itemName);
-        if(itemName.toLowerCase().equals("dragonhelm")){
-            this.defence = 75;
+        if (itemName.toLowerCase().equals("defaulthelm")){
+            this.health = 15;
+        }else if(itemName.toLowerCase().equals("dragonhelm")){
+            this.health = 75;
         }else if (itemName.toLowerCase().equals("bonehelm")){
-            this.defence = 40;
+            this.health = 40;
         }else if (itemName.toLowerCase().equals("orgehelm")){
-            this.defence = 50;
+            this.health = 50;
         }else if (itemName.toLowerCase().equals("bathelm")){
-            this.defence = 30;
+            this.health = 30;
         }
     }
 }

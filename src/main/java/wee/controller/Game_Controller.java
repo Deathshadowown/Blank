@@ -48,7 +48,10 @@ public class Game_Controller{
                     randomnumber = consoleInterface.messageSelectedMonsterToFight(game.getMonster());
                     count = game.fightSystem(randomnumber);
                     consoleInterface.fightReport(count);
-                    game.itemDrop();
+                    randomnumber = game.itemDrop();
+                    userCommand = consoleInterface.itemDropMessage(randomnumber, game.getItem());
+                    if (userCommand.equals("yes"))
+                    game.equipItem();
                     game.fightNorth();
                 }
             }else if (userCommand.toLowerCase().equals("south")){

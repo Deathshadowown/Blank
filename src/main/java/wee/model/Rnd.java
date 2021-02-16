@@ -8,9 +8,24 @@ public class Rnd{
         rnNumber = random.nextInt(10);
         return rnNumber;
     }
+    public int randomNumberOfThree(){
+        int rnNumber = 0;
+        rnNumber = random.nextInt(2);
+        return rnNumber;
+    }
     public int randomNumberOfFour(){
         int rnNumber = 0;
         rnNumber = random.nextInt(3);
+        return rnNumber;
+    }
+    public int randomNumberOfFive(){
+        int rnNumber = 0;
+        rnNumber = random.nextInt(4);
+        return rnNumber;
+    }
+    public int randomNumberOfSix(){
+        int rnNumber = 0;
+        rnNumber = random.nextInt(5);
         return rnNumber;
     }
 
