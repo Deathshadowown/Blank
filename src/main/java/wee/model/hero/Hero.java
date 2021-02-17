@@ -6,6 +6,10 @@ import wee.model.items.Helm;
 import wee.model.items.Items;
 import wee.model.items.Potion;
 import java.lang.Math;
+import java.io.File;  // Import the File class
+import java.io.IOException;  // Import the IOException class to handle errors
+import java.util.Scanner;
+import java.io.FileWriter;
 public class Hero{
     private String heroName;
     private String heroClass;
@@ -172,5 +176,33 @@ public class Hero{
     }
     public void setHeroNextLevel(int nextLevel){
         this.nextLevel *= nextLevel;
+    }
+    public void saveGame(){
+        try {
+            File newFile = new File("SaveFile.txt");
+            // System.out.println("are we really here?");
+            if (newFile.exists()){
+                FileWriter write = new FileWriter("SaveFile.txt");
+                write.write(this.heroName+" "+this.heroClass+" "+this.heroLevel+" "+this.weapon.getItemName()+" "
+                +this.armor.getItemName()+" "+this.helm.getItemName()+" "+this.attack+" "
+                +this.defence+" "+this.health+" "+this.getBlockChance()
+                +" "+this.experience+" "+this.experienceEarned+" "+this.nextLevel+" "+this.heroLevel);
+                write.close();
+            }else{
+                newFile.createNewFile();
+                System.out.println("Save File been created.");
+                Scanner scan = new Scanner("SaveFile.txt");
+                FileWriter write = new FileWriter("SaveFile.txt");
+                write.write(this.heroName+" "+this.heroClass+" "+this.heroLevel+" "+this.weapon.getItemName()+" "
+                +this.armor.getItemName()+" "+this.helm.getItemName()+" "+this.attack+" "
+                +this.defence+" "+this.health+" "+this.getBlockChance()
+                +" "+this.experience+" "+this.experienceEarned+" "+this.nextLevel+" "+this.heroLevel);
+                write.close();
+            }
+        } catch (IOException e){
+            System.out.println("ERROR: File");
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
     }
 }

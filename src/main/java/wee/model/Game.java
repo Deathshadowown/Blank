@@ -36,6 +36,10 @@ public class Game{
         return userHero;
     }
 
+    public void saveGame(){
+        userHero.saveGame();
+    }
+
     public Monster getMonster(){
         return selectedMonster;
     }

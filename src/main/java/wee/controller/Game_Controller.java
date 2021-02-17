@@ -58,9 +58,8 @@ public class Game_Controller{
                         generateNewMap();
                     }else if (userCommand.equals("2")){
 
-                    }else if (userCommand.equals("3")){
-                            
-                    }
+                    }else if (userCommand.equals("3"))
+                    System.exit(0);
                 }
                 if (newCount == 1){
                     game.selectMonsterToFight();
@@ -83,9 +82,8 @@ public class Game_Controller{
                         generateNewMap();
                     }else if (userCommand.equals("2")){
 
-                    }else if (userCommand.equals("3")){
-                            
-                    }
+                    }else if (userCommand.equals("3"))
+                    System.exit(0);
                 }
                 if (newCount == 1){
                     game.selectMonsterToFight();
@@ -108,9 +106,8 @@ public class Game_Controller{
                         generateNewMap();
                     }else if (userCommand.equals("2")){
 
-                    }else if (userCommand.equals("3")){
-                            
-                    }
+                    }else if (userCommand.equals("3"))
+                    System.exit(0);
                 }
                 if (newCount == 1){
                     game.selectMonsterToFight();
@@ -133,9 +130,8 @@ public class Game_Controller{
                         generateNewMap();
                     }else if (userCommand.equals("2")){
 
-                    }else if (userCommand.equals("3")){
-                            
-                    }
+                    }else if (userCommand.equals("3"))
+                    System.exit(0);
                 }
                 if (newCount == 1){
                     game.selectMonsterToFight();
@@ -149,7 +145,7 @@ public class Game_Controller{
                     game.fightWest();
                 }
             }else if (userCommand.toLowerCase().equals("save")){
-                
+                game.saveGame();
             }else if (userCommand.toLowerCase().equals("quit")){
                 System.exit(0);
             }
