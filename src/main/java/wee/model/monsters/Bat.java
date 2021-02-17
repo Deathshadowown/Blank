@@ -8,5 +8,6 @@ public class Bat extends Monster{
         this.defence = 10;
         this.health = 100;
         this.blockChance = 10;
+        this.experienceDroped = 150;
     }
 }

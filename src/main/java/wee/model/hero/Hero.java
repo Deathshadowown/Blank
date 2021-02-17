@@ -5,6 +5,7 @@ import wee.model.items.Armor;
 import wee.model.items.Helm;
 import wee.model.items.Items;
 import wee.model.items.Potion;
+import java.lang.Math;
 public class Hero{
     private String heroName;
     private String heroClass;
@@ -18,7 +19,7 @@ public class Hero{
     protected int blockChance;
     protected int experience;
     protected int experienceEarned;
-    protected int nextLevel = 50;
+    protected int nextLevel = 1000;
     protected int heroLevel = 1;
 
     public Hero(String heroName, String heroClass){
@@ -27,10 +28,11 @@ public class Hero{
     }
     
     // public int nextLevel(int heroLevel){
-        // int exponent = 1.5;
-        // int baseXP = 1000;
-        // return math.floor(baseXP * (heroLevel ^ exponent));
+    //     int exponent = 1.5;
+    //     int baseXP = 1000;
+    //     return math.floor(baseXP * (heroLevel ^ exponent));
     // }
+
     //Set HeroName
     public String getHeroName(){
         return this.heroName;
@@ -147,18 +149,28 @@ public class Hero{
         return this.experience;
     }
     public void setExperience(int experience){
-        this.experience = experience;
+        this.experience += experience;
+        if (this.experience >= getHeroNextLevel()){
+            this.heroLevel++;
+            setHeroNextLevel(heroLevel);
+            System.out.println("\u001B[34m"+"congratulations, "+heroName+" You have reached level "+heroLevel+"\u001B[37m");
+            this.experience = 0;
+        }
     }
-
-
-
-
 
     //set HeroLevel
     public int getHeroLevel(){
         return this.heroLevel;
     }
     public void setHeroLevel(int heroLevel){
-        this.heroLevel = heroLevel;
+        this.heroLevel += heroLevel;
+    }
+
+    //set HeroNextLevel
+    public int getHeroNextLevel(){
+        return this.nextLevel;
+    }
+    public void setHeroNextLevel(int nextLevel){
+        this.nextLevel *= nextLevel;
     }
 }

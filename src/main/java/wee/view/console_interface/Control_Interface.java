@@ -111,7 +111,8 @@ public class Control_Interface{
         System.out.println("Hero's Attack: "+myHero.getAttack());
         System.out.println("Hero's Defence:"+myHero.getDefence());
         System.out.println("Hero's BlockChance: "+myHero.getBlockChance());
-        System.out.println("Current Hero's Experience: "+myHero.getExperience()+"\u001B[37m");
+        System.out.println("Current Hero's Experience: "+myHero.getExperience());
+        System.out.println("Next Level Needed: "+myHero.getHeroNextLevel()+"\u001B[37m");
     }
 
     public int fightOrFlee(){
@@ -158,8 +159,10 @@ public class Control_Interface{
         if (count == 1){
             System.out.println(ANSI_RED+"hero has died, Game Over"+ANSI_WHITE);
             System.exit(0);
-        }else if (count == 2)
-        System.out.println(ANSI_BLUE+"Monster has died"+ANSI_WHITE);
+        }else if (count == 2){
+            System.out.println(ANSI_BLUE+"Monster has died, Hero has earned "+selectedMonster.getExperienceDroped()+" Experience"+ANSI_WHITE);
+            myHero.setExperience(selectedMonster.getExperienceDroped());
+        }
         
     }
 

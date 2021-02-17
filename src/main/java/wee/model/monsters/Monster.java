@@ -6,6 +6,7 @@ public class Monster{
     protected int defence;
     protected int health;
     protected int blockChance;
+    protected int experienceDroped;
 
     public Monster(String monsterName){
         this.monsterName = monsterName;
@@ -49,5 +50,13 @@ public class Monster{
     }
     public void setBlockChance(int blockChance){
         this.blockChance = blockChance;
+    }
+
+    //set ExperienceDroped
+    public int getExperienceDroped(){
+        return this.experienceDroped;
+    }
+    public void setExperienceDroped(int experienceDroped){
+        this.experienceDroped = experienceDroped;
     }
 }
