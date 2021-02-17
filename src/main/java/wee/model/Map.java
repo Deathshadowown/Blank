@@ -102,7 +102,7 @@ public class Map{
                 return count;
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Game won");
+            System.out.println("\u001B[32m"+"Game won\u001B[37m");
         } catch (Exception e) {
             //TODO: handle exception
         }
@@ -116,7 +116,7 @@ public class Map{
             map[playerLocation[0] - 1][playerLocation[1]] = 'P';
             map[playerLocation[0]][playerLocation[1]] = 'O';         
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Game won");
+            System.out.println("\u001B[32m"+"Game won\u001B[37m");
         } catch (Exception e) {
             //TODO: handle exception
         }
@@ -139,7 +139,7 @@ public class Map{
                 return count;
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Game won");
+            System.out.println("\u001B[32m"+"Game won\u001B[37m");
         } catch (Exception e) {
             //TODO: handle exception
         }
@@ -154,7 +154,7 @@ public class Map{
             map[playerLocation[0] + 1][playerLocation[1]] = 'P';
             map[playerLocation[0]][playerLocation[1]] = 'O';       
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Game won");
+            System.out.println("\u001B[32m"+"Game won\u001B[37m");
         } catch (Exception e) {
             //TODO: handle exception
         }
@@ -176,7 +176,7 @@ public class Map{
                 return count;
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Game won");
+            System.out.println("\u001B[32m"+"Game won\u001B[37m");
         } catch (Exception e) {
             //TODO: handle exception
         }
@@ -191,7 +191,7 @@ public class Map{
             map[playerLocation[0]][playerLocation[1] + 1] = 'P';
             map[playerLocation[0]][playerLocation[1]] = 'O';     
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Game won");
+            System.out.println("\u001B[32m"+"Game won\u001B[37m");
         } catch (Exception e) {
             //TODO: handle exception
         }
@@ -213,7 +213,7 @@ public class Map{
                 return count;
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Game won");
+            System.out.println("\u001B[32m"+"Game won\u001B[37m");
         } catch (Exception e) {
             //TODO: handle exception
         }
@@ -228,7 +228,7 @@ public class Map{
             map[playerLocation[0]][playerLocation[1] - 1] = 'P';
             map[playerLocation[0]][playerLocation[1]] = 'O';
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Game won");
+            System.out.println("\u001B[32m"+"Game won\u001B[37m");
         } catch (Exception e) {
             //TODO: handle exception
         }

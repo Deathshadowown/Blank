@@ -60,7 +60,13 @@ public class Game_Controller{
                 newCount = fightOrFlee(count);
                 if (newCount == 1){
                     game.selectMonsterToFight();
-                    consoleInterface.messageSelectedMonsterToFight(game.getMonster());
+                    randomnumber = consoleInterface.messageSelectedMonsterToFight(game.getMonster());
+                    count = game.fightSystem(randomnumber);
+                    consoleInterface.fightReport(count);
+                    randomnumber = game.itemDrop();
+                    userCommand = consoleInterface.itemDropMessage(randomnumber, game.getItem());
+                    if (userCommand.equals("yes"))
+                    game.equipItem();
                     game.fightSouth();
                 }
             }else if (userCommand.toLowerCase().equals("east")){
@@ -69,7 +75,13 @@ public class Game_Controller{
                 newCount = fightOrFlee(count);
                 if (newCount == 1){
                     game.selectMonsterToFight();
-                    consoleInterface.messageSelectedMonsterToFight(game.getMonster());
+                    randomnumber = consoleInterface.messageSelectedMonsterToFight(game.getMonster());
+                    count = game.fightSystem(randomnumber);
+                    consoleInterface.fightReport(count);
+                    randomnumber = game.itemDrop();
+                    userCommand = consoleInterface.itemDropMessage(randomnumber, game.getItem());
+                    if (userCommand.equals("yes"))
+                    game.equipItem();
                     game.fightEast();
                 }
             }else if (userCommand.toLowerCase().equals("west")){
@@ -78,7 +90,13 @@ public class Game_Controller{
                 newCount = fightOrFlee(count);
                 if (newCount == 1){
                     game.selectMonsterToFight();
-                    consoleInterface.messageSelectedMonsterToFight(game.getMonster());
+                    randomnumber = consoleInterface.messageSelectedMonsterToFight(game.getMonster());
+                    count = game.fightSystem(randomnumber);
+                    consoleInterface.fightReport(count);
+                    randomnumber = game.itemDrop();
+                    userCommand = consoleInterface.itemDropMessage(randomnumber, game.getItem());
+                    if (userCommand.equals("yes"))
+                    game.equipItem();
                     game.fightWest();
                 }
             }else if (userCommand.toLowerCase().equals("save")){

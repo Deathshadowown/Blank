@@ -101,18 +101,18 @@ public class Control_Interface{
     }
 
     public void playerInfo(){
-        System.out.println("\u001B[32m"+"Hero's Name: "+myHero.getHeroName());
-        System.out.println("Hero's Current Weapon: "+myHero.getCurrentWeapon());
-        System.out.println("Hero's Current Armor: "+myHero.getCurrentArmor());
-        System.out.println("Hero's Current Helm: "+myHero.getCurrentHelm());
-        System.out.println("Hero's Class: "+myHero.getHeroClass());
-        System.out.println("Hero's Level: "+myHero.getHeroLevel());
-        System.out.println("Hero's Health: "+myHero.getHealth());
-        System.out.println("Hero's Attack: "+myHero.getAttack());
-        System.out.println("Hero's Defence:"+myHero.getDefence());
-        System.out.println("Hero's BlockChance: "+myHero.getBlockChance());
-        System.out.println("Current Hero's Experience: "+myHero.getExperience());
-        System.out.println("Next Level Needed: "+myHero.getHeroNextLevel()+"\u001B[37m");
+        System.out.println("\u001B[32m"+"Hero's Name: "+myHero.getHeroName()+"\u001B[32m");
+        System.out.println("\u001B[32m"+"Hero's Current Weapon: "+myHero.getCurrentWeapon()+"\u001B[32m");
+        System.out.println("\u001B[32m"+"Hero's Current Armor: "+myHero.getCurrentArmor()+"\u001B[32m");
+        System.out.println("\u001B[32m"+"Hero's Current Helm: "+myHero.getCurrentHelm()+"\u001B[32m");
+        System.out.println("\u001B[32m"+"Hero's Class: "+myHero.getHeroClass());
+        System.out.println("\u001B[32m"+"Hero's Level: "+myHero.getHeroLevel());
+        System.out.println("\u001B[32m"+"Hero's Health: "+myHero.getHealth());
+        System.out.println("\u001B[32m"+"Hero's Attack: "+myHero.getAttack());
+        System.out.println("\u001B[32m"+"Hero's Defence:"+myHero.getDefence());
+        System.out.println("\u001B[32m"+"Hero's BlockChance: "+myHero.getBlockChance());
+        System.out.println("\u001B[32m"+"Current Hero's Experience: "+myHero.getExperience());
+        System.out.println("\u001B[32m"+"Next Level Needed: "+myHero.getHeroNextLevel()+"\u001B[37m");
     }
 
     public int fightOrFlee(){

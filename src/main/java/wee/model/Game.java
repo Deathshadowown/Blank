@@ -26,10 +26,10 @@ public class Game{
     private Map map = new Map();
     private Items item;
     private static final String[] listOfMonsters = {"Dragon", "Orge", "Skeleton", "Bat"};
-    private static final String[] listBatMonsterItems = {"batsword", "batarmor", "bathelm", "healingpotion", "greaterhealingpotion"};
-    private static final String[] listSkeletonMonsterItems = {"bonesword", "bonearmor", "bonehelm", "healingpotion", "greaterhealingpotion"};
-    private static final String[] listOrgeMonsterItems = {"orgesword", "orgearmor", "orgehelm", "healingpotion", "greaterhealingpotion", "superiorhealingpotion"};
-    private static final String[] listDragonMonsterItems = {"dragonsword", "dragonarmor", "dragonhelm", "healingpotion", "greaterhealingpotion", "superiorhealingpotion", "supremehealingpotion"};
+    private static final String[] listBatMonsterItems = {ANSI_GREEN+"batsword"+ANSI_WHITE, ANSI_GREEN+"batarmor"+ANSI_WHITE, ANSI_GREEN+"bathelm"+ANSI_WHITE, ANSI_BLUE+"healingpotion"+ANSI_WHITE, ANSI_BLUE+"greaterhealingpotion"+ANSI_WHITE};
+    private static final String[] listSkeletonMonsterItems = {ANSI_CYAN+"bonesword"+ANSI_WHITE, ANSI_CYAN+"bonearmor"+ANSI_WHITE, ANSI_CYAN+"bonehelm"+ANSI_WHITE, ANSI_BLUE+"healingpotion", ANSI_BLUE+"greaterhealingpotion"};
+    private static final String[] listOrgeMonsterItems = {ANSI_YELLOW+"orgesword"+ANSI_WHITE, ANSI_YELLOW+"orgearmor"+ANSI_WHITE, ANSI_YELLOW+"orgehelm"+ANSI_WHITE, ANSI_BLUE+"healingpotion"+ANSI_WHITE, ANSI_BLUE+"greaterhealingpotion"+ANSI_WHITE, ANSI_BLUE+"superiorhealingpotion"+ANSI_WHITE};
+    private static final String[] listDragonMonsterItems = {ANSI_PURPLE+"dragonsword"+ANSI_WHITE, ANSI_PURPLE+"dragonarmor"+ANSI_WHITE, ANSI_PURPLE+"dragonhelm"+ANSI_WHITE, ANSI_BLUE+"healingpotion"+ANSI_WHITE, ANSI_BLUE+"greaterhealingpotion"+ANSI_WHITE, ANSI_BLUE+"superiorhealingpotion"+ANSI_WHITE, ANSI_BLUE+"supremehealingpotion"+ANSI_WHITE};
     private Rnd random = new Rnd();
 
     public Hero getHero(){
