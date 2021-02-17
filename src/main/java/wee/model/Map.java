@@ -103,6 +103,7 @@ public class Map{
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("\u001B[32m"+"Game won\u001B[37m");
+            return 3;
         } catch (Exception e) {
             //TODO: handle exception
         }
@@ -140,6 +141,7 @@ public class Map{
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("\u001B[32m"+"Game won\u001B[37m");
+            return 3;
         } catch (Exception e) {
             //TODO: handle exception
         }
@@ -177,6 +179,7 @@ public class Map{
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("\u001B[32m"+"Game won\u001B[37m");
+            return 3;
         } catch (Exception e) {
             //TODO: handle exception
         }
@@ -214,6 +217,7 @@ public class Map{
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("\u001B[32m"+"Game won\u001B[37m");
+            return 3;
         } catch (Exception e) {
             //TODO: handle exception
         }

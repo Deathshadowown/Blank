@@ -25,6 +25,15 @@ public class Game_Controller{
         }
     }
 
+    public void generateNewMap(){
+        game.createMap();
+        game.addMonstersToMap();
+        game.addPlayerToMap();
+        game.printMap();
+        consoleInterface.helpMessage();
+        startGame();
+    }
+
     public void startGame(){
         try {
             String userCommand = null;
@@ -43,6 +52,16 @@ public class Game_Controller{
                 count = game.playerMoveNorth();
                 if (count == 2)
                 newCount = fightOrFlee(count);
+                else if(count == 3){
+                    userCommand = consoleInterface.messageExitOrNextStage();
+                    if(userCommand.equals("1")){
+                        generateNewMap();
+                    }else if (userCommand.equals("2")){
+
+                    }else if (userCommand.equals("3")){
+                            
+                    }
+                }
                 if (newCount == 1){
                     game.selectMonsterToFight();
                     randomnumber = consoleInterface.messageSelectedMonsterToFight(game.getMonster());
@@ -58,6 +77,16 @@ public class Game_Controller{
                 count = game.playerMoveSouth();
                 if (count == 2)
                 newCount = fightOrFlee(count);
+                else if(count == 3){
+                    userCommand = consoleInterface.messageExitOrNextStage();
+                    if(userCommand.equals("1")){
+                        generateNewMap();
+                    }else if (userCommand.equals("2")){
+
+                    }else if (userCommand.equals("3")){
+                            
+                    }
+                }
                 if (newCount == 1){
                     game.selectMonsterToFight();
                     randomnumber = consoleInterface.messageSelectedMonsterToFight(game.getMonster());
@@ -73,6 +102,16 @@ public class Game_Controller{
                 count = game.playerMoveEast();
                 if (count == 2)
                 newCount = fightOrFlee(count);
+                else if(count == 3){
+                    userCommand = consoleInterface.messageExitOrNextStage();
+                    if(userCommand.equals("1")){
+                        generateNewMap();
+                    }else if (userCommand.equals("2")){
+
+                    }else if (userCommand.equals("3")){
+                            
+                    }
+                }
                 if (newCount == 1){
                     game.selectMonsterToFight();
                     randomnumber = consoleInterface.messageSelectedMonsterToFight(game.getMonster());
@@ -88,6 +127,16 @@ public class Game_Controller{
                 count = game.playerMoveWest();
                 if (count == 2)
                 newCount = fightOrFlee(count);
+                else if(count == 3){
+                    userCommand = consoleInterface.messageExitOrNextStage();
+                    if(userCommand.equals("1")){
+                        generateNewMap();
+                    }else if (userCommand.equals("2")){
+
+                    }else if (userCommand.equals("3")){
+                            
+                    }
+                }
                 if (newCount == 1){
                     game.selectMonsterToFight();
                     randomnumber = consoleInterface.messageSelectedMonsterToFight(game.getMonster());

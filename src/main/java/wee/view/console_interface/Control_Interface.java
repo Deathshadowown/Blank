@@ -186,4 +186,21 @@ public class Control_Interface{
         }
         return userReply;
     }
+
+    public String messageExitOrNextStage(){
+        String userChoice = null;
+        System.out.println("Do you want to move to the next stage or quit?");
+        while(true){
+            System.out.print("Choice 1) nextStage, 2) Save, 3) Quit: ");
+            userChoice = scan.nextLine();
+            if (userChoice.equals("1")){
+                return userChoice;
+            }else if (userChoice.equals("2")){
+                return userChoice;
+            }else if (userChoice.equals("3")){
+                return userChoice;
+            }
+
+        }
+    }
 }
