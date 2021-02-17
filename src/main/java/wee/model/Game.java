@@ -28,8 +28,8 @@ public class Game{
     private static final String[] listOfMonsters = {"Dragon", "Orge", "Skeleton", "Bat"};
     private static final String[] listBatMonsterItems = {"batsword", "batarmor", "bathelm", "healingpotion", "greaterhealingpotion"};
     private static final String[] listSkeletonMonsterItems = {"bonesword", "bonearmor", "bonehelm", "healingpotion", "greaterhealingpotion"};
-    private static final String[] listOrgeMonsterItems = {"bonesword", "bonearmor", "bonehelm", "healingpotion", "greaterhealingpotion", "superiorhealingpotion"};
-    private static final String[] listDragonMonsterItems = {"bonesword", "bonearmor", "bonehelm", "healingpotion", "greaterhealingpotion", "superiorhealingpotion", "supremehealingpotion"};
+    private static final String[] listOrgeMonsterItems = {"orgesword", "orgearmor", "orgehelm", "healingpotion", "greaterhealingpotion", "superiorhealingpotion"};
+    private static final String[] listDragonMonsterItems = {"dragonsword", "dragonarmor", "dragonhelm", "healingpotion", "greaterhealingpotion", "superiorhealingpotion", "supremehealingpotion"};
     private Rnd random = new Rnd();
 
     public Hero getHero(){
@@ -51,7 +51,7 @@ public class Game{
     }
 
     public void selectMonsterToFight(){
-        int randomMonster = random.randomNumberOfFour();
+        int randomMonster = random.randomNumberOfFourOne();
         System.out.println(randomMonster);
         System.out.println(listOfMonsters[randomMonster]+" --Weeeeeeeeeeeee");
         selectedMonster = CreateMonster.newMonster(listOfMonsters[randomMonster]);
@@ -189,10 +189,11 @@ public class Game{
         int randomItemDrop;
         // boolean isFound = text.contains("Java8");
         randomNumber = random.randomNumberOneHundred();
+
         if (randomNumber > 50){
             if (selectedMonster.getMonsterName().equals("Dragon")){
                 randomItemDrop = random.randomNumberOfSix();
-                if (listDragonMonsterItems[randomItemDrop].contains("weapon")){
+                if (listDragonMonsterItems[randomItemDrop].contains("sword")){
                     getItem("weapon", listDragonMonsterItems[randomItemDrop]);
                 }else if (listDragonMonsterItems[randomItemDrop].contains("armor")){
                     getItem("armor", listDragonMonsterItems[randomItemDrop]);
@@ -203,7 +204,7 @@ public class Game{
                 }
             }else if (selectedMonster.getMonsterName().equals("Orge")){
                 randomItemDrop = random.randomNumberOfFive();
-                if (listOrgeMonsterItems[randomItemDrop].contains("weapon")){
+                if (listOrgeMonsterItems[randomItemDrop].contains("sword")){
                     getItem("weapon", listOrgeMonsterItems[randomItemDrop]);
                 }else if (listOrgeMonsterItems[randomItemDrop].contains("armor")){
                     getItem("armor", listOrgeMonsterItems[randomItemDrop]);
@@ -214,7 +215,7 @@ public class Game{
                 }
             }else if (selectedMonster.getMonsterName().equals("Bat")){
                 randomItemDrop = random.randomNumberOfFour();
-                if (listBatMonsterItems[randomItemDrop].contains("weapon")){
+                if (listBatMonsterItems[randomItemDrop].contains("sword")){
                     getItem("weapon", listBatMonsterItems[randomItemDrop]);
                 }else if (listBatMonsterItems[randomItemDrop].contains("armor")){
                     getItem("armor", listBatMonsterItems[randomItemDrop]);
@@ -225,7 +226,7 @@ public class Game{
                 }
             }else if (selectedMonster.getMonsterName().equals("Skeleton")){
                 randomItemDrop = random.randomNumberOfFour();
-                if (listSkeletonMonsterItems[randomItemDrop].contains("weapon")){
+                if (listSkeletonMonsterItems[randomItemDrop].contains("sword")){
                     getItem("weapon", listSkeletonMonsterItems[randomItemDrop]);
                 }else if (listSkeletonMonsterItems[randomItemDrop].contains("armor")){
                     getItem("armor", listSkeletonMonsterItems[randomItemDrop]);
@@ -243,16 +244,14 @@ public class Game{
 
     public void equipItem(){
         String nameOfItem = item.getItemName();
-        System.out.println("this is going to be the item to equipt: "+nameOfItem);
-        if(nameOfItem.contains("weapon")){
+        if(nameOfItem.contains("sword")){
             userHero.setChangeCurrentWeapon(item);
         }else if (nameOfItem.contains("armor")){
             userHero.setChangeCurrentArmor(item);
         }else if (nameOfItem.contains("helm")){
             userHero.setChangeCurrentHelm(item);
+        }else if (nameOfItem.contains("potion")){
+            userHero.setAndUsePotion(item);
         }
-        // else if (nameOfItem.contains("potion")){
-
-        // }
     }
 }

@@ -4,12 +4,14 @@ import wee.model.items.Weapons;
 import wee.model.items.Armor;
 import wee.model.items.Helm;
 import wee.model.items.Items;
+import wee.model.items.Potion;
 public class Hero{
     private String heroName;
     private String heroClass;
     protected Weapons weapon;
     protected Armor armor;
     protected Helm helm;
+    protected Potion potion;
     protected int attack;
     protected int defence;
     protected int health;
@@ -55,11 +57,11 @@ public class Hero{
     }
 
     public void setChangeCurrentWeapon(Items item){
-        int totalAttack;
-        totalAttack = this.attack - this.weapon.getAttack();
+        int totalAttack = getAttack();
+        totalAttack -= this.weapon.getAttack();
         this.weapon = new Weapons(item.getItemName());
-        totalAttack = this.attack + this.weapon.getAttack();
-        this.attack = totalAttack;
+        totalAttack += this.weapon.getAttack();
+        setAttack(totalAttack);
     }
     
     //set CurrentArmor
@@ -72,11 +74,11 @@ public class Hero{
     }
 
     public void setChangeCurrentArmor(Items item){
-        int totalArmor;
-        totalArmor = this.defence - this.armor.getDefence();
+        int totalArmor = getDefence();
+        totalArmor -= this.armor.getDefence();
         this.armor = new Armor(item.getItemName());
-        totalArmor = this.defence + this.armor.getDefence();
-        this.defence = totalArmor;
+        totalArmor +=  this.armor.getDefence();
+        setDefence(totalArmor);
     }
 
     //set CurrentHelm
@@ -89,11 +91,23 @@ public class Hero{
     }
 
     public void setChangeCurrentHelm(Items item){
-        int totalHelm;
-        totalHelm = this.health - this.helm.getHealth();
-        this.helm = new Helm(item.getItemName());
-        totalHelm = this.health + this.helm.getHealth();
-        this.health = totalHelm;
+        int totalHelm = getHealth();
+        totalHelm -= this.helm.getHealth();
+        if (totalHelm <= 0){
+            System.out.println("Cant uniquip helm, Hero would die.");
+        }else{
+            this.helm = new Helm(item.getItemName());
+            totalHelm += this.helm.getHealth();
+            setHealth(totalHelm);
+        }
+    }
+
+    //Set Potion
+    public void setAndUsePotion(Items item){
+        int addHealth = getHealth();
+        this.potion = new Potion(item.getItemName());
+        addHealth += potion.getHealth();
+        setHealth(addHealth);
     }
 
     //set Attack

@@ -164,7 +164,6 @@ public class Control_Interface{
     }
 
     public String itemDropMessage(int randomNumber, Items gotItem){
-        System.out.println("here i am");
         String userReply = "boo";
         item = gotItem;
         if (randomNumber > 50){

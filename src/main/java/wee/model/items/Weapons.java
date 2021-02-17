@@ -4,7 +4,7 @@ public class Weapons extends Items{
     public Weapons(String itemName){
         super("Weapon", itemName);
         if (itemName.toLowerCase().equals("defaultSword")){
-            this.attack = 2;
+            this.attack = 0;
         }else if(itemName.toLowerCase().equals("dragonsword")){
             this.attack = 20;
         }else if (itemName.toLowerCase().equals("bonesword")){

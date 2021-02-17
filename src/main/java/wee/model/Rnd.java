@@ -15,17 +15,23 @@ public class Rnd{
     }
     public int randomNumberOfFour(){
         int rnNumber = 0;
-        rnNumber = random.nextInt(3);
+        //changing to 4
+        rnNumber = random.nextInt(4);
         return rnNumber;
     }
-    public int randomNumberOfFive(){
+    public int randomNumberOfFourOne(){
         int rnNumber = 0;
         rnNumber = random.nextInt(4);
         return rnNumber;
     }
-    public int randomNumberOfSix(){
+    public int randomNumberOfFive(){
         int rnNumber = 0;
         rnNumber = random.nextInt(5);
+        return rnNumber;
+    }
+    public int randomNumberOfSix(){
+        int rnNumber = 0;
+        rnNumber = random.nextInt(6);
         return rnNumber;
     }
 

@@ -4,7 +4,7 @@ public class Armor extends Items{
     public Armor(String itemName){
         super("Armor", itemName);
         if (itemName.toLowerCase().equals("defaultarmor")){
-            this.defence = 2;
+            this.defence = 0;
         }else if(itemName.toLowerCase().equals("dragonarmor")){
             this.defence = 20;
         }else if (itemName.toLowerCase().equals("bonearmor")){

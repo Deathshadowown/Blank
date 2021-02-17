@@ -4,7 +4,7 @@ public class Helm extends Items{
     public Helm(String itemName){
         super("Helm", itemName);
         if (itemName.toLowerCase().equals("defaulthelm")){
-            this.health = 15;
+            this.health = 0;
         }else if(itemName.toLowerCase().equals("dragonhelm")){
             this.health = 75;
         }else if (itemName.toLowerCase().equals("bonehelm")){
