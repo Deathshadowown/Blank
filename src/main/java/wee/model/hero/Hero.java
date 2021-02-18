@@ -180,8 +180,9 @@ public class Hero{
     public void saveGame(){
         try {
             File newFile = new File("SaveFile.txt");
-            // System.out.println("are we really here?");
+            // Scanner scan = new Scanner(newFile);
             if (newFile.exists()){
+                Scanner scan = new Scanner(newFile);
                 FileWriter write = new FileWriter("SaveFile.txt");
                 write.write(this.heroName+" "+this.heroClass+" "+this.heroLevel+" "+this.weapon.getItemName()+" "
                 +this.armor.getItemName()+" "+this.helm.getItemName()+" "+this.attack+" "
@@ -191,13 +192,7 @@ public class Hero{
             }else{
                 newFile.createNewFile();
                 System.out.println("Save File been created.");
-                Scanner scan = new Scanner("SaveFile.txt");
-                FileWriter write = new FileWriter("SaveFile.txt");
-                write.write(this.heroName+" "+this.heroClass+" "+this.heroLevel+" "+this.weapon.getItemName()+" "
-                +this.armor.getItemName()+" "+this.helm.getItemName()+" "+this.attack+" "
-                +this.defence+" "+this.health+" "+this.getBlockChance()
-                +" "+this.experience+" "+this.experienceEarned+" "+this.nextLevel+" "+this.heroLevel);
-                write.close();
+                saveGame();
             }
         } catch (IOException e){
             System.out.println("ERROR: File");

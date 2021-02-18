@@ -1,0 +1,1 @@
+Death Assassin 1 bonesword defaultarmor defaulthelm 60 15 90 25 200 0 1000 1

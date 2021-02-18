@@ -16,7 +16,7 @@ public class Control_Interface{
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_WHITE = "\u001B[37m";
-    private Game game;
+    // private Game game;
     private Hero myHero;
     private Items item;
     private Monster selectedMonster;
@@ -102,9 +102,9 @@ public class Control_Interface{
 
     public void playerInfo(){
         System.out.println("\u001B[32m"+"Hero's Name: "+myHero.getHeroName()+"\u001B[32m");
-        System.out.println("\u001B[32m"+"Hero's Current Weapon: "+myHero.getCurrentWeapon()+"\u001B[32m");
-        System.out.println("\u001B[32m"+"Hero's Current Armor: "+myHero.getCurrentArmor()+"\u001B[32m");
-        System.out.println("\u001B[32m"+"Hero's Current Helm: "+myHero.getCurrentHelm()+"\u001B[32m");
+        weaponColour();
+        armorColour();
+        helmColour();
         System.out.println("\u001B[32m"+"Hero's Class: "+myHero.getHeroClass());
         System.out.println("\u001B[32m"+"Hero's Level: "+myHero.getHeroLevel());
         System.out.println("\u001B[32m"+"Hero's Health: "+myHero.getHealth());
@@ -113,6 +113,90 @@ public class Control_Interface{
         System.out.println("\u001B[32m"+"Hero's BlockChance: "+myHero.getBlockChance());
         System.out.println("\u001B[32m"+"Current Hero's Experience: "+myHero.getExperience());
         System.out.println("\u001B[32m"+"Next Level Needed: "+myHero.getHeroNextLevel()+"\u001B[37m");
+    }
+
+    public void weaponColour(){
+        if (myHero.getCurrentWeapon().equals("defaultSword")){
+            System.out.println("\u001B[32m"+"Hero's Current Weapon: "+"\u001B[32m"+myHero.getCurrentWeapon()+"\u001B[32m");
+        }else if (myHero.getCurrentWeapon().equals("dragonsword")){
+            System.out.println("\u001B[32m"+"Hero's Current Weapon: "+"\u001B[35m"+myHero.getCurrentWeapon()+"\u001B[32m");
+        }else if (myHero.getCurrentWeapon().equals("orgesword")){
+            System.out.println("\u001B[32m"+"Hero's Current Weapon: "+ANSI_YELLOW+myHero.getCurrentWeapon()+"\u001B[32m");
+        }else if (myHero.getCurrentWeapon().equals("bonesword")){
+            System.out.println("\u001B[32m"+"Hero's Current Weapon: "+ANSI_CYAN+myHero.getCurrentWeapon()+"\u001B[32m");
+        }else if (myHero.getCurrentWeapon().equals("batsword")){
+            System.out.println("\u001B[32m"+"Hero's Current Weapon: "+ANSI_GREEN+myHero.getCurrentWeapon()+"\u001B[32m");
+        }
+    }
+
+    public void armorColour(){
+        if (myHero.getCurrentArmor().equals("defaultarmor")){
+            System.out.println("\u001B[32m"+"Hero's Current Armor: "+"\u001B[32m"+myHero.getCurrentArmor()+"\u001B[32m");
+        }else if (myHero.getCurrentArmor().equals("dragonarmor")){
+            System.out.println("\u001B[32m"+"Hero's Current Armor: "+"\u001B[35m"+myHero.getCurrentArmor()+"\u001B[32m");
+        }else if (myHero.getCurrentArmor().equals("orgearmor")){
+            System.out.println("\u001B[32m"+"Hero's Current Armor: "+ANSI_YELLOW+myHero.getCurrentArmor()+"\u001B[32m");
+        }else if (myHero.getCurrentArmor().equals("bonearmor")){
+            System.out.println("\u001B[32m"+"Hero's Current Armor: "+ANSI_CYAN+myHero.getCurrentArmor()+"\u001B[32m");
+        }else if (myHero.getCurrentArmor().equals("batarmor")){
+            System.out.println("\u001B[32m"+"Hero's Current Armor: "+ANSI_GREEN+myHero.getCurrentArmor()+"\u001B[32m");
+        }
+    }
+
+    public void helmColour(){
+        if (myHero.getCurrentHelm().equals("defaulthelm")){
+            System.out.println("\u001B[32m"+"Hero's Current Helm: "+"\u001B[32m"+myHero.getCurrentHelm()+"\u001B[32m");
+        }else if (myHero.getCurrentHelm().equals("dragonhelm")){
+            System.out.println("\u001B[32m"+"Hero's Current Helm: "+"\u001B[35m"+myHero.getCurrentHelm()+"\u001B[32m");
+        }else if (myHero.getCurrentHelm().equals("orgehelm")){
+            System.out.println("\u001B[32m"+"Hero's Current Helm: "+ANSI_YELLOW+myHero.getCurrentHelm()+"\u001B[32m");
+        }else if (myHero.getCurrentHelm().equals("bonehelm")){
+            System.out.println("\u001B[32m"+"Hero's Current Helm: "+ANSI_CYAN+myHero.getCurrentHelm()+"\u001B[32m");
+        }else if (myHero.getCurrentHelm().equals("bathelm")){
+            System.out.println("\u001B[32m"+"Hero's Current Helm: "+ANSI_GREEN+myHero.getCurrentHelm()+"\u001B[32m");
+        }
+    }
+
+    public void itemColour(){
+        if(item.getItemName().contains("sword")){
+            if (item.getItemName().equals("defaultSword")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_WHITE+item.getItemName()+ANSI_BLUE);
+            }else if (item.getItemName().equals("dragonsword")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_PURPLE+item.getItemName()+ANSI_BLUE);
+            }else if (item.getItemName().equals("orgesword")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_YELLOW+item.getItemName()+ANSI_BLUE);
+            }else if (item.getItemName().equals("bonesword")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_CYAN+item.getItemName()+ANSI_BLUE);
+            }else if (item.getItemName().equals("batsword")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_GREEN+item.getItemName()+ANSI_BLUE);
+            }
+        }else if (item.getItemName().contains("armor")){
+            if (item.getItemName().equals("defaultarmor")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_WHITE+item.getItemName()+ANSI_BLUE);
+            }else if (item.getItemName().equals("dragonarmor")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_PURPLE+item.getItemName()+ANSI_BLUE);
+            }else if (item.getItemName().equals("orgearmor")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_YELLOW+item.getItemName()+ANSI_BLUE);
+            }else if (item.getItemName().equals("bonearmor")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_CYAN+item.getItemName()+ANSI_BLUE);
+            }else if (item.getItemName().equals("batarmor")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_GREEN+item.getItemName()+ANSI_BLUE);
+            }
+        }else if (item.getItemName().contains("helm")){
+            if (item.getItemName().equals("defaulthelm")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_WHITE+item.getItemName()+ANSI_BLUE);
+            }else if (item.getItemName().equals("dragonhelm")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_PURPLE+item.getItemName()+ANSI_BLUE);
+            }else if (item.getItemName().equals("orgehelm")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_YELLOW+item.getItemName()+ANSI_BLUE);
+            }else if (item.getItemName().equals("bonehelm")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_CYAN+item.getItemName()+ANSI_BLUE);
+            }else if (item.getItemName().equals("bathelm")){
+                System.out.println(ANSI_BLUE+"You received "+ANSI_GREEN+item.getItemName()+ANSI_BLUE);
+            }
+        }else if (item.getItemName().contains("potion")){
+            System.out.println(ANSI_BLUE+"You received "+item.getItemName());
+        }
     }
 
     public int fightOrFlee(){
@@ -170,7 +254,7 @@ public class Control_Interface{
         String userReply = "boo";
         item = gotItem;
         if (randomNumber > 50){
-            System.out.println(ANSI_BLUE+"You received "+item.getItemName());
+            itemColour();
             while(true){
                 System.out.print("Do you want to equip item? yes no: "+ANSI_WHITE);
                 userReply = scan.nextLine();
