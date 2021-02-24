@@ -8,18 +8,29 @@ public class Game_Controller{
     public Game game = new Game();
     private Rnd random = new Rnd();
     public Control_Interface consoleInterface = new Control_Interface();
+    // private byte loadOrNew = consoleInterface.loadOrNewGame();
     public Game_Controller(byte userChoice){
         userChoiceInterface = userChoice;
         if (userChoice == 1){
-            String heroName = consoleInterface.userHeroName();
-            String heroClass = consoleInterface.userHeroClass();
-            game.createHero(heroName, heroClass);
-            game.createMap();
-            game.addMonstersToMap();
-            game.addPlayerToMap();
-            game.printMap();
-            consoleInterface.helpMessage();
-            startGame();
+            byte loadOrNew = consoleInterface.loadOrNewGame();
+            if(loadOrNew == 1){
+                String heroName = consoleInterface.userHeroName();
+                String heroClass = consoleInterface.userHeroClass();
+                game.createHero(heroName, heroClass);
+                game.createMap();
+                game.addMonstersToMap();
+                game.addPlayerToMap();
+                game.printMap();
+                consoleInterface.helpMessage();
+                startGame();
+            }else if (loadOrNew == 2){
+                game.loadGame();
+                game.createMap();
+                game.addMonstersToMap();
+                game.addPlayerToMap();
+                game.printMap();
+                startGame();
+            }
         }else if (userChoice == 2){
 
         }

@@ -109,7 +109,7 @@ public class Control_Interface{
         System.out.println("\u001B[32m"+"Hero's Level: "+myHero.getHeroLevel());
         System.out.println("\u001B[32m"+"Hero's Health: "+myHero.getHealth());
         System.out.println("\u001B[32m"+"Hero's Attack: "+myHero.getAttack());
-        System.out.println("\u001B[32m"+"Hero's Defence:"+myHero.getDefence());
+        System.out.println("\u001B[32m"+"Hero's Defence: "+myHero.getDefence());
         System.out.println("\u001B[32m"+"Hero's BlockChance: "+myHero.getBlockChance());
         System.out.println("\u001B[32m"+"Current Hero's Experience: "+myHero.getExperience());
         System.out.println("\u001B[32m"+"Next Level Needed: "+myHero.getHeroNextLevel()+"\u001B[37m");
@@ -285,6 +285,19 @@ public class Control_Interface{
                 return userChoice;
             }
 
+        }
+    }
+
+    public byte loadOrNewGame(){
+        byte loadOrSave = 0;
+        while(true){
+            System.out.print("Would you like to start a 1) new game or 2)load a game? Use 1 or 2: ");
+            loadOrSave = scan.nextByte();
+            if (loadOrSave == 1){
+                return loadOrSave;
+            }else if (loadOrSave == 2){
+                return loadOrSave;
+            }
         }
     }
 }

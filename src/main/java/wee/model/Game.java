@@ -54,6 +54,10 @@ public class Game{
         userHero = CreateHero.newHero(heroName, heroClass);
     }
 
+    public void loadGame(){
+        userHero = CreateHero.loadHero();
+    }
+
     public void selectMonsterToFight(){
         int randomMonster = random.randomNumberOfFourOne();
         System.out.println(randomMonster);
